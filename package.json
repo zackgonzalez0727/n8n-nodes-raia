@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-raia",
-  "version": "0.1.0",  
+  "version": "0.1.2",  
   "keywords": [
     "n8n-community-node-package",
     "raia"
@@ -14,11 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zackgonzalez0727/n8n-nodes-starter.git"
+    "url": "https://github.com/zackgonzalez0727/n8n-nodes-raia.git"
   },
   "engines": {
     "node": ">=18.10",
     "pnpm": ">=9.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "packageManager": "pnpm@9.1.4",
   "main": "index.js",
