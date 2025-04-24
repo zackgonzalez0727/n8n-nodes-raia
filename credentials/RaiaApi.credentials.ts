@@ -8,7 +8,7 @@ import type {
 export class RaiaApi implements ICredentialType {
 	name = 'raiaApi';
 
-	displayName = 'raia API';
+	displayName = 'Raia API';
 
 	documentationUrl = 'https://api.raia2.com/api/external/docs';
 
