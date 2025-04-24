@@ -1,45 +1,73 @@
 ![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
 
-# n8n-nodes-starter
+# 📡 n8n-nodes-raia
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+**Custom n8n Node** to interact with the **Raia** platform for managing AI-powered and human-led conversations via SMS, Email, or Voice.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+## 🚀 Features
 
-## Prerequisites
+This node allows you to:
+- Start new conversations (SMS, Email, Voice)
+- Chat or prompt an agent
+- Send messages in existing conversations
+- Wait for a reply via webhook
+- Use Raia’s platform in a single, unified node
 
-You need the following installed on your development machine:
+## 🔧 Node Actions
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 18. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  pnpm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+| Action                     | Description                                                  |
+|---------------------------|--------------------------------------------------------------|
+| Start SMS Conversation    | Initiate a conversation via SMS                              |
+| Start Email Conversation  | Initiate a conversation via Email                            |
+| Start Voice Conversation  | Initiate a conversation via Voice                            |
+| Chat with Agent           | Create a new user and start a conversation with an agent     |
+| Prompt an Agent           | Send a prompt to an agent                                    |
+| Send Message              | Send a message in an existing conversation                   |
+| Wait for Reply (Webhook)  | Trigger a workflow when a reply is received via webhook      |
 
-## Using this starter
+## 🧩 Node Parameters
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+### Common Parameters (used in most actions)
+- **First Name**
+- **Last Name**
+- **Context** (e.g., "Support")
+- **Source** (e.g., "crm")
+- **fkId**
+- **fkUserId**
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `pnpm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `pnpm lint` to check for errors or `pnpm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+### Channel-Specific Parameters
 
-## More information
+#### SMS / Voice
+- **Phone Number**
+- **SMS Introduction** (for SMS)
+- **Voice Introduction** (for Voice)
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+#### Email
+- **Email Address**
+- **Email Subject**
+- **Email Introduction**
+- **Include Signature in Email** (boolean)
+
+### Prompt Agent
+- **Prompt**
+
+### Send Message
+- **Conversation ID**
+- **Message**
+
+## 🪝 Webhook
+
+When using the `Wait for Reply (Webhook)` action, the following payload is expected:
+
+```json
+{
+  "conversationId": "string",
+  "messageId": "string",
+  "userId": "string",
+  "message": "string",
+  "timestamp": "ISODate"
+}
+```
 
 ## License
 
