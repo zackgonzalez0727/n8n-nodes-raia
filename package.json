@@ -1,16 +1,16 @@
 {
   "name": "n8n-nodes-raia",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.0",  
   "keywords": [
     "n8n-community-node-package",
     "raia"
   ],
   "license": "MIT",
-  "homepage": "",
+  "description": "raia is a platform to build, train, test and launch AI Agents",
+  "homepage": "https://raiaAI.com",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "raia",
+    "email": "support@raiaai.com"
   },
   "repository": {
     "type": "git",
